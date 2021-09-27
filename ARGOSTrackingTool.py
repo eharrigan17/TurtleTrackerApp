@@ -54,7 +54,7 @@ obs_lon = lineData[7]
 print(f"Record {record_id} indicates Sara was seen at lat: {obs_lat}, lon:{obs_lon} on {obs_date}")
 
 #Task 4
-#Interate through all lines in the linelist
+#Interate through all lines in the linelist using for loop
 for lineString in line_list:
     if lineString[0] in ("#","u"): continue
                  
@@ -70,6 +70,36 @@ for lineString in line_list:
     
     #print the location of sara
     print(f"Record {record_id} indicates Sara was seen at lat: {obs_lat}, lon:{obs_lon} on {obs_date}")
+
+#using while loop
+#Read the first line in the file
+
+lineString = file_object.readline()
+
+#interate using a while loop
+while lineString: 
+    if lineString[0] in ("#","u"): 
+        #read next line
+        lineString = file_object.readline()
+        continue
+                 
+    #Split the string into a list of data items
+    lineData = lineString.split()
+    
+    #Extract items in list into variables
+    record_id = lineData[0]
+    obs_date = lineData[2]
+    obs_lc = lineData[4]
+    obs_lat = lineData[6]
+    obs_lon = lineData[7]
+    
+    #print the location of sara
+    print(f"Record {record_id} indicates Sara was seen at lat: {obs_lat}, lon:{obs_lon} on {obs_date}")
+#Read the next line
+    lineString = file_object.readline()
+    
+#close the file
+file_object.close()
 
 
 
